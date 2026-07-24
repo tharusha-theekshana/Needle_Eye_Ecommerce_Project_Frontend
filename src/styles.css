@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #1F5E45;
+  --primary-color-dark: #0E3B2E;
+  --primary-color-light: #2F7A5C;
+  --secondary-color: #E9D9B4;
+  --secondary-color-light: #FAF5E8;
+  --gold-color: #B68A4E;
+  --black-color: #16180F;
+  --cream-color: #FFFDF8;
+  --line-color: rgba(22, 24, 15, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--secondary-color-light);
+  background: var(--cream-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
