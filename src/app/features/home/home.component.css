@@ -1,0 +1,18 @@
+.welcome-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #f7f3ee;
+  text-align: center;
+}
+
+.welcome-banner button {
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}

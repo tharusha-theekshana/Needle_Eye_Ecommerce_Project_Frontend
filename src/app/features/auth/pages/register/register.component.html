@@ -1,0 +1,100 @@
+<div class="d-flex flex-column flex-lg-row overflow-hidden reg-content">
+  <div class="col-lg-6 d-flex flex-column align-items-center px-2 px-sm-0 px-md-5 px-sm-0 py-3 py-sm-0 form-content">
+    <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1 w-100">
+      <a class="brand-mark-auth pb-lg-5 pb-md-5 pb-0 text-start" routerLink="/">{{ brandName }}</a>
+      <div class="w-100 form-inner">
+
+        <p class="sub-title text-start text-nowrap mb-2">TAKE NEEDLE</p>
+        <h2 class="mb-1 sign-in-text">Create Account</h2>
+        <p class="mb-4 sub-text">Set up your profile for faster checkout, order tracking, and early access to new
+          editions.</p>
+
+        <form (ngSubmit)="onRegister()">
+          <div class="d-flex flex-row justify-content-between">
+            <app-text-input
+              label="first Name"
+              type="text"
+              icon="bi-fonts"
+              placeholder="Jhon"
+              [maxlength]=20
+              [(ngModel)]="firstName"
+              [ngModelOptions]="{standalone: true}"
+              [errorMessage]="firstNameError"
+            ></app-text-input>
+
+            <app-text-input
+              label="Last Name"
+              type="text"
+              icon="bi-fonts"
+              placeholder="Anthony"
+              [maxlength]=20
+              [(ngModel)]="lastName"
+              [ngModelOptions]="{standalone: true}"
+              [errorMessage]="lastNameError"
+            ></app-text-input>
+          </div>
+
+          <app-text-input
+            label="Email"
+            type="email"
+            icon="bi-envelope"
+            placeholder="jhon@example.com"
+            [maxlength]=75
+            [(ngModel)]="email"
+            [ngModelOptions]="{standalone: true}"
+            [errorMessage]="emailError"
+          ></app-text-input>
+
+          <app-text-input
+            label="Mobile number"
+            type="tel"
+            icon="bi-envelope"
+            placeholder="07* *******"
+            [maxlength]=10
+            [(ngModel)]="mobileNumber"
+            [ngModelOptions]="{standalone: true}"
+            [errorMessage]="mobileNumberError"
+          ></app-text-input>
+
+          <app-text-input
+            label="Password"
+            type="password"
+            icon="bi-lock"
+            placeholder="••••••••"
+            [maxlength]=20
+            [minlength]=8
+            [(ngModel)]="password"
+            [ngModelOptions]="{standalone: true}"
+            [errorMessage]="passwordError"
+          ></app-text-input>
+
+          <button type="submit" class="btn-fill w-100 app-button" [disabled]="submitting">
+            {{ submitting ? 'SIGNING UP' : 'SIGN UP' }}
+          </button>
+        </form>
+
+        <hr class="stitch my-4">
+
+        <p class="text-center switch-text">
+          Already a member?
+          <a routerLink="/login" class="switch-link">Sign in</a>
+        </p>
+
+        <app-alert-message
+          class="w-100"
+          [errorMessage]= "errorMessage"
+          (closed)="errorMessage = ''"
+        ></app-alert-message>
+      </div>
+
+    </div>
+
+    <p class="login-footer text-center mb-3">
+      &copy; {{ currentYear }} {{ brandName }}. All rights reserved.
+    </p>
+  </div>
+
+  <div class="col-lg-6 image-content d-none d-lg-block">
+    <img class="img" src="/images/reg-banner-image.png">
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="app-error-alert" role="alert" *ngIf="visible">
+  <div class="app-error-alert-icon">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+  </div>
+  <div class="app-error-alert-content">
+    <p class="app-error-alert-title text-center" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+  <button type="button" class="app-error-alert-close" (click)="close()">
+    <i class="bi bi-x-lg"></i>
+  </button>
+</div>

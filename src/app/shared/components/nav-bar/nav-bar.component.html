@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg custom-navbar py-3 px-3">
+  <div class="container">
+    <a class="brand-mark" routerLink="/">{{ brandName }}</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navMain"
+      aria-controls="navMain"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-lg-auto gap-lg-4 mb-3 mb-lg-0">
+        <li class="nav-item" *ngFor="let link of navLinks">
+          <a class="nav-link" [routerLink]="link.path" routerLinkActive="active-link">
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="d-flex gap-4 gap-lg-5 align-items-center">
+        <button class="icon-btn-wrap" type="button" aria-label="Search">
+          <i class="bi bi-search icon-btn"></i>
+        </button>
+
+        <button class="icon-btn-wrap" type="button" aria-label="Wishlist">
+          <i class="bi bi-heart icon-btn"></i>
+        </button>
+
+        <a routerLink="/cart" class="icon-btn-wrap position-relative" aria-label="Cart">
+          <i class="bi bi-bag icon-btn"></i>
+          <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+        </a>
+
+        <div class="d-flex align-items-center gap-2" *ngIf="isLoggedIn; else loggedOut">
+          <span class="user-greeting">Hi, {{ userName }}</span>
+          <span (click)="logout()" class="sign-out"> Sign Out</span>
+        </div>
+
+        <ng-template #loggedOut>
+          <button (click)="goLogin()" class="icon-btn-wrap" type="button" aria-label="Login">
+            <i class="bi bi-person-circle icon-btn"></i>
+          </button>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</nav>

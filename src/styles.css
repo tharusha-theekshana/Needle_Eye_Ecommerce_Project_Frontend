@@ -8,14 +8,15 @@
   --black-color: #16180F;
   --cream-color: #FFFDF8;
   --line-color: rgba(22, 24, 15, 0.14);
+  --error-color: #ffe5e5;
+  --error-border-color: #ff9b9b;
+  --error-text-color : #7f1d1d;
 }
 
 * { box-sizing: border-box; }
 
-body {
+body,* {
   font-family: 'Quicksand', sans-serif;
-  color: var(--secondary-color-light);
-  background: var(--cream-color);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -23,4 +24,58 @@ h1, h2, h3, h4 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+
+.brand-mark {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: 0.12em;
+  color: var(--primary-color);
+  text-decoration: none !important;
+}
+
+.brand-mark-auth {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 0.12em;
+  color: var(--primary-color-dark);
+  text-decoration: none !important;
+}
+
+.sub-title{
+  color: var(--gold-color);
+  font-size: 12px;
+  letter-spacing: .2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.app-button{
+  background: var(--primary-color-dark);
+  color: var(--secondary-color);
+  border: 1.5px solid var(--primary-color);
+  border-radius: 2px;
+  padding: 13px 28px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 992px) and (max-height: 800px) {
+  .brand-mark-auth {
+    font-size: 30px;
+  }
+
+  .sub-title{
+    font-size: 10px;
+  }
+
+  .app-button{
+    padding: 10px 25px;
+    font-size: 11px;
+    letter-spacing: .06em;
+  }
 }
