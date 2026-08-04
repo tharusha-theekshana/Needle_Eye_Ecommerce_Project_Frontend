@@ -1,6 +1,6 @@
-<div class="d-flex flex-column flex-lg-row overflow-hidden login-content">
-  <div class="col-lg-6 image-content d-none d-lg-block">
-    <img class="img" src="/images/login-banner-image.png">
+<div class="d-flex flex-column flex-lg-row overflow-hidden auth-content">
+  <div class="col-lg-6 auth-image-content d-none d-lg-block">
+    <img class="img" src="/images/banner-three.png">
   </div>
 
   <div class="col-lg-6 d-flex flex-column align-items-center px-2 px-sm-0 px-md-5 px-sm-0 py-3 py-sm-0 form-content">
@@ -35,7 +35,13 @@
 
           <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
             <div class="form-check">
-              <input class="form-check-input shadow-none" type="checkbox" id="remember">
+              <input
+                class="form-check-input shadow-none"
+                type="checkbox"
+                id="remember"
+                [(ngModel)]="rememberMe"
+                [ngModelOptions]="{standalone: true}"
+              >
               <label class="form-check-label remember-me-text" for="remember">Remember me</label>
             </div>
             <a routerLink="/forgot-password" class="forgot-password-text">Forgot password?</a>
@@ -48,16 +54,16 @@
 
         <hr class="stitch my-4">
 
-        <p class="text-center switch-text">
-          New to Needle Eye?
-          <a routerLink="/register" class="switch-link">Create an account</a>
-        </p>
-
         <app-alert-message
           class="w-100"
           [errorMessage]= "errorMessage"
           (closed)="errorMessage = ''"
         ></app-alert-message>
+
+        <p class="text-center switch-text">
+          New to Needle Eye?
+          <a routerLink="/register" class="switch-link">Create an account</a>
+        </p>
       </div>
     </div>
 

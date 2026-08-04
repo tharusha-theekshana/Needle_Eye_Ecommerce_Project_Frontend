@@ -26,6 +26,23 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
+.auth-content {
+  min-height: 100vh;
+}
+
+.auth-image-content {
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+}
+
+.auth-image-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
 .brand-mark {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;

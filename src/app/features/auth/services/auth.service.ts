@@ -22,4 +22,16 @@ export class AuthService {
   login(payload: LoginPayload): Observable<ApiResponse<LoginResponseData>> {
     return this.http.post<ApiResponse<LoginResponseData>>(API_ENDPOINTS.AUTH.LOGIN, payload);
   }
+
+  forgotPassword(email: string): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(API_ENDPOINTS.AUTH.FORGOT_PASSWORD, { email });
+  }
+
+  verifyOtp(email: string, otp: string): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(API_ENDPOINTS.AUTH.OTP_VERIFICATION, { email, otp });
+  }
+
+  resetPassword(email: string, newPassword: string): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(API_ENDPOINTS.AUTH.RESET_PASSWORD, { email, newPassword });
+  }
 }

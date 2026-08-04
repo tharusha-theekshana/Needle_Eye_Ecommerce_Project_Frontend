@@ -27,6 +27,7 @@ export class LoginComponent {
 
   email = '';
   password = '';
+  rememberMe = false;
 
   emailError = '';
   passwordError = '';
@@ -77,10 +78,11 @@ export class LoginComponent {
               res.data!.role,
               res.data!.token,
               userRes.data!.firstName,
-              userRes.data!.lastName
+              userRes.data!.lastName,
+              this.rememberMe
             );
             this.submitting = false;
-            this.router.navigate(['/']);
+            this.router.navigate(['/']).then(r => false);
           },
           error: (err) => {
             this.submitting = false;

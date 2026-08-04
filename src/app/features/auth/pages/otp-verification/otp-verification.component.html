@@ -1,0 +1,65 @@
+<div class="d-flex flex-column flex-lg-row overflow-hidden auth-content">
+  <div class="col-lg-6 auth-image-content d-none d-lg-block">
+    <img class="img" src="/images/login-banner-image.png">
+  </div>
+
+  <div class="col-lg-6 d-flex flex-column align-items-center px-2 px-sm-0 px-md-5 px-sm-0 py-3 py-sm-0 form-content">
+    <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1 w-100">
+      <a class="brand-mark-auth pb-lg-5 pb-md-5 pb-0 text-start" routerLink="/">{{ brandName }}</a>
+      <div class="w-100 form-inner">
+
+        <p class="sub-title text-start text-nowrap mb-2">Almost there</p>
+        <h2 class="mb-1 sign-in-text">Enter Verification Code</h2>
+        <p class="mb-4 sub-text">
+          We've sent a 6-digit code to <strong>{{ email }}</strong>. Enter it below to continue.
+        </p>
+
+        <form (ngSubmit)="onSubmit()">
+          <app-text-input
+            label="Verification code"
+            type="text"
+            icon="bi-shield-lock"
+            placeholder="123456"
+            [maxlength]="6"
+            [(ngModel)]="otp"
+            [ngModelOptions]="{standalone: true}"
+            [errorMessage]="otpError"
+          ></app-text-input>
+
+          <button type="submit" class="btn-fill w-100 app-button" [disabled]="submitting">
+            {{ submitting ? 'VERIFYING' : 'VERIFY CODE' }}
+          </button>
+        </form>
+
+        <p class="text-center switch-text mt-3">
+          Didn't get the code?
+          <a href="javascript:void(0)" class="switch-link" (click)="resendOtp()" [class.disabled]="resending">
+            {{ resending ? 'Sending…' : 'Resend code' }}
+          </a>
+        </p>
+
+        <p class="text-center timer-text mb-0" *ngIf="resendDisabled">
+          Code expires in <strong>{{ timerDisplay }}</strong>
+        </p>
+
+        <p class="text-center resend-info-text mb-0" *ngIf="infoMessage">{{ infoMessage }}</p>
+
+        <hr class="stitch my-4">
+
+        <app-alert-message
+          [errorMessage]="errorMessage"
+          (closed)="errorMessage = ''"
+        ></app-alert-message>
+
+        <p class="text-center switch-text">
+          Remembered your password?
+          <a routerLink="/login" class="switch-link">Sign in</a>
+        </p>
+      </div>
+    </div>
+
+    <p class="login-footer text-center mb-3">
+      &copy; {{ currentYear }} {{ brandName }}. All rights reserved.
+    </p>
+  </div>
+</div>

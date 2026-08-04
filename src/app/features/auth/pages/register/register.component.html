@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-lg-row overflow-hidden reg-content">
+<div class="d-flex flex-column flex-lg-row overflow-hidden auth-content">
   <div class="col-lg-6 d-flex flex-column align-items-center px-2 px-sm-0 px-md-5 px-sm-0 py-3 py-sm-0 form-content">
     <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1 w-100">
       <a class="brand-mark-auth pb-lg-5 pb-md-5 pb-0 text-start" routerLink="/">{{ brandName }}</a>
@@ -75,16 +75,17 @@
 
         <hr class="stitch my-4">
 
-        <p class="text-center switch-text">
-          Already a member?
-          <a routerLink="/login" class="switch-link">Sign in</a>
-        </p>
-
         <app-alert-message
           class="w-100"
           [errorMessage]= "errorMessage"
           (closed)="errorMessage = ''"
         ></app-alert-message>
+
+        <p class="text-center switch-text">
+          Already a member?
+          <a routerLink="/login" class="switch-link">Sign in</a>
+        </p>
+
       </div>
 
     </div>
@@ -94,7 +95,7 @@
     </p>
   </div>
 
-  <div class="col-lg-6 image-content d-none d-lg-block">
-    <img class="img" src="/images/reg-banner-image.png">
+  <div class="col-lg-6 auth-image-content d-none d-lg-block">
+    <img class="img" src="/images/banner-two.png">
   </div>
 </div>
